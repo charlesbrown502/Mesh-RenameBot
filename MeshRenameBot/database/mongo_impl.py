@@ -22,9 +22,9 @@ class UserDB(MongoDB):
         
 
         
-        res = users.find({"user_id":user_id})
+        res = users.find_one({"user_id":user_id})
 
-        if res.count_documents() > 0:
+        if res.count() > 0:
             user = res[0]
             jdata = user["json_data"]
             jdata = json.loads(jdata)
@@ -41,9 +41,9 @@ class UserDB(MongoDB):
         # implement cache later.
         
 
-        res = users.find({"user_id":user_id})
+        res = users.find_one({"user_id":user_id})
 
-        if res.count_documents() > 0:
+        if res.count() > 0:
             user = res[0]
             jdata = user["json_data"]
             jdata = json.loads(jdata)
@@ -54,7 +54,7 @@ class UserDB(MongoDB):
             #self.shared_users[user_id] = {var:value}
 
         
-        if res.count_documents() > 0:
+        if res.count() > 0:
             user = res[0]
             users.update({"_id":user["_id"]}, {"$set":{"json_data":json.dumps(jdata)}})
 
@@ -69,10 +69,10 @@ class UserDB(MongoDB):
         db = self._db
         users = db.mesh_rename
 
-        res = users.find({"user_id":user_id})
+        res = users.find_one({"user_id":user_id})
         
         
-        if res.count_documents() > 0:
+        if res.count() > 0:
             row = res[0]
             
             if row["thumbnail"] is None:
@@ -100,13 +100,13 @@ class UserDB(MongoDB):
         db = self._db
         users = db.mesh_rename
 
-        res = users.find({"user_id":user_id})
+        res = users.find_one({"user_id":user_id})
         
         if isinstance(thumbnail, str):
             with open(thumbnail, "rb") as f:
                 thumbnail = f.read()
 
-        if res.count_documents() > 0:
+        if res.count() > 0:
             users.update({"user_id":user_id}, {"$set":{"thumbnail": thumbnail}})
         else:
             users.insert_one({"user_id":user_id, "thumbnail": thumbnail, "json_data":json.dumps({}), "file_choice":0})
@@ -123,9 +123,9 @@ class UserDB(MongoDB):
         db = self._db
         users = db.mesh_rename
 
-        res = users.find({"user_id":user_id})
+        res = users.find_one({"user_id":user_id})
 
-        if res.count_documents() > 0:
+        if res.count() > 0:
             users.update({"user_id":user_id}, {"$set":{"file_choice": mode}})
         else:
             users.insert_one({"user_id":user_id, "file_choice": mode, "thumbnail": None, "json_data":json.dumps({})})
@@ -137,10 +137,10 @@ class UserDB(MongoDB):
         db = self._db
         users = db.mesh_rename
 
-        res = users.find({"user_id":user_id})
+        res = users.find_one({"user_id":user_id})
         
         
-        if res.count_documents() > 0:
+        if res.count() > 0:
             row = res[0]
             
             
