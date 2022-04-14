@@ -48,7 +48,7 @@ def add_handlers(client: Client) -> None:
 
 
 async def start_handler(client: Client, msg: Message) -> None:
-    await msg.reply(Trans.START_MSG, quote=True)
+    await msg.reply(Trans.START_MSG, reply_markup=Trans.START_BUTTON, quote=True)
 
 
 async def rename_handler(client: Client, msg: Message) -> None:
