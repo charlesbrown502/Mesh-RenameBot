@@ -90,5 +90,5 @@ from the while file name.
     """
     START_BUTTON = InlineKeyboardMarkup([
         [InlineKeyboardButton("Updates Channel", url= "t.me/XZ_Bots"),
-        InlineKeyboardMarkup("Support", url= "t.me/XZ_SupportBot")]
+        InlineKeyboardButton("Support", url= "t.me/XZ_SupportBot")]
         ])
