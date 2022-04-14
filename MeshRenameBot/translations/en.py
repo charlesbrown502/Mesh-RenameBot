@@ -89,6 +89,6 @@ from the while file name.
 `/queue` - Gives the state of your rename and the load on bot.
     """
     START_BUTTON = InlineKeyboardMarkup([
-        [InlineKeyboardButton("Updates Channel", url= ""),
-        InlineKeyboardMarkup("Support", url= "")]
+        [InlineKeyboardButton("Updates Channel", url= "t.me/XZ_Bots"),
+        InlineKeyboardMarkup("Support", url= "t.me/XZ_SupportBot")]
         ])
