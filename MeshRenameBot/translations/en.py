@@ -88,3 +88,7 @@ from the while file name.
     - Upload general media. [In streamable video/audio. etc.]
 `/queue` - Gives the state of your rename and the load on bot.
     """
+    START_BUTTON = InlineKeyboardMarkup([
+        [InlineKeyboardButton("Updates Channel", url= ""),
+        InlineKeyboardMarkup("Support", url= "")]
+        ])
