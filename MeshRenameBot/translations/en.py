@@ -1,3 +1,5 @@
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
 class EnTrans:
     
     WRONG_VALUE_ERROR = "Invalid value entered for {} variable."
